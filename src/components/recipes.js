@@ -54,11 +54,11 @@ const RecipeCard = ({item, index, navigation}) => {
                 className="flex justify-center mb-4 space-y-1"
                 onPress={()=> navigation.navigate('RecipeDetail', {...item})}
             >
-                <Animated.Image 
+                <Image 
                     source={{uri: item.strMealThumb}}
                     style={{width: '100%', height: index%3==0 ? hp(25) : hp(35), borderRadius: 35}}
                     className="bg-black/5"
-                    sharedTransitionTag={item.strMeal}
+                    // sharedTransitionTag={item.strMeal} /*animation that doesnt work*/
                 />
                 {/* This helper function only throw errors that storage is already full */}
                 {/* <CachedImage
