@@ -8,6 +8,7 @@ import { useNavigation } from "@react-navigation/native";
 import axios from 'axios';
 import Loading from '../components/loading';
 import YoutubeIframe from 'react-native-youtube-iframe';
+import Animated from 'react-native-reanimated';
 
 
 
@@ -64,8 +65,9 @@ export default function RecipeDetailScreen(props) {
       <StatusBar style={"light"} />
       {/* recipe image */}
       <View className="flex-row justify-center">
-      <Image 
+      <Animated.Image 
             source={{uri: item.strMealThumb}}
+            sharedTransitionTag={item.strMeal}
             style={{width: wp(98), height: hp(50), borderRadius: 20, 
                 borderBottomRightRadius: 40, borderBottomLeftRadius:40, marginTop: 4}}
         />
