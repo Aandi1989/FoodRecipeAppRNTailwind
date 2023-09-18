@@ -47,7 +47,7 @@ export default function RecipeDetailScreen(props) {
         return indexes;
     } 
 
-    const getYoutubeVideoId = url=>{
+    const getYoutubeVideoId = (url)=>{
         const regex = /[?&]v=([^&]+)/;
         const match = url.match(regex);
         if (match && match[1]) {
@@ -65,7 +65,7 @@ export default function RecipeDetailScreen(props) {
       <StatusBar style={"light"} />
       {/* recipe image */}
       <View className="flex-row justify-center">
-      <Image 
+      <Animated.Image 
             source={{uri: item.strMealThumb}}
             // sharedTransitionTag={item.strMeal} /*animation that doesnt work*/
             style={{width: wp(98), height: hp(50), borderRadius: 20, 
@@ -89,6 +89,7 @@ export default function RecipeDetailScreen(props) {
             <Loading size="large" className="mt-16"/>
         ) : (
             <View className="px-4 flex justify-between space-y-4 pt-8">
+
                 {/* name and area */}
                 <View className="space-y-2">
                     <Text style={{fontSize: hp(3)}} className="font-bold flex-1 text-neutral-700">
@@ -207,16 +208,16 @@ export default function RecipeDetailScreen(props) {
 
                 {/* recipe video */}
                 {
-                    meal.strYoutube && (
+                    meal.strYoutube  && (
                         <View className="space-y-4 ">
                             <Text style={{fontSize: hp(2.5)}} className="font-bold flex-1 text-neutral-700">
                                 Recipe Video
                             </Text>
                             <View>
-                                <YoutubeIframe
-                                    videoId={getYoutubeVideoId(meal.strYoutube)}
+                                {/* <YoutubeIframe
+                                     videoId={getYoutubeVideoId(meal.strYoutube)}
                                     height={hp(30)}
-                                />
+                                /> */}
                             </View>
                         </View>
                     )
