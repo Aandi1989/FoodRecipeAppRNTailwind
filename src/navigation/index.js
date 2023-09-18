@@ -4,6 +4,7 @@ import 'react-native-gesture-handler';
 import { TransitionPresets, createStackNavigator } from '@react-navigation/stack';
 import HomeScreen from "../screens/HomeScreen";
 import WelcomeScreen from "../screens/WelcomeScreen";
+import RecipeDetailScreenScreen from "../screens/RecipeDetailScreen";
 
 
 // const Stack = createNativeStackNavigator();
@@ -19,6 +20,7 @@ export default function AppNavigation() {
         <MainStack.Navigator initialRouteName="Welcome" screenOptions={{...TransitionPresets.SlideFromRightIOS}}>
           <MainStack.Screen name="Home" options={{headerShown: false}} component={HomeScreen}/>
           <MainStack.Screen name="Welcome" options={{headerShown: false}} component={WelcomeScreen}/>
+          <MainStack.Screen name="RecipeDetail" options={{headerShown: false}} component={RecipeDetailScreenScreen}/>
         </MainStack.Navigator>
       </NavigationContainer>
     );
