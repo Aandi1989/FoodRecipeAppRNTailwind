@@ -214,10 +214,11 @@ export default function RecipeDetailScreen(props) {
                                 Recipe Video
                             </Text>
                             <View>
-                                {/* <YoutubeIframe
+                                <YoutubeIframe
                                      videoId={getYoutubeVideoId(meal.strYoutube)}
                                     height={hp(30)}
-                                /> */}
+                                    webViewStyle={{opacity: 0.99}}
+                                />
                             </View>
                         </View>
                     )
