@@ -1,27 +1,23 @@
 import { NavigationContainer } from "@react-navigation/native";
-// import { createNativeStackNavigator } from "@react-navigation/native-stack";
-import 'react-native-gesture-handler';
-import { TransitionPresets, createStackNavigator } from '@react-navigation/stack';
+import { createNativeStackNavigator } from "@react-navigation/native-stack";
 import HomeScreen from "../screens/HomeScreen";
 import WelcomeScreen from "../screens/WelcomeScreen";
 import RecipeDetailScreenScreen from "../screens/RecipeDetailScreen";
 
 
-// const Stack = createNativeStackNavigator();
-const MainStack = createStackNavigator();
+const Stack = createNativeStackNavigator();
 
 export default function AppNavigation() {
     return (
       <NavigationContainer>
-        {/* <Stack.Navigator initialRouteName="Welcome">
-          <Stack.Screen name="Home" options={{headerShown: false}} component={HomeScreen} />
-          <Stack.Screen name="Welcome" options={{headerShown: false}} component={WelcomeScreen} />
-        </Stack.Navigator> */}
-        <MainStack.Navigator initialRouteName="Welcome" screenOptions={{...TransitionPresets.SlideFromRightIOS}}>
-          <MainStack.Screen name="Home" options={{headerShown: false}} component={HomeScreen}/>
-          <MainStack.Screen name="Welcome" options={{headerShown: false}} component={WelcomeScreen}/>
-          <MainStack.Screen name="RecipeDetail" options={{headerShown: false}} component={RecipeDetailScreenScreen}/>
-        </MainStack.Navigator>
+        <Stack.Navigator initialRouteName="Welcome" screenOptions={{
+          animation:'slide_from_right',
+          presentation: 'card',
+        }}>
+          <Stack.Screen name="Home" options={{headerShown: false}} component={HomeScreen}/>
+          <Stack.Screen name="Welcome" options={{headerShown: false}} component={WelcomeScreen}/>
+          <Stack.Screen name="RecipeDetail" options={{headerShown: false}} component={RecipeDetailScreenScreen}/>
+        </Stack.Navigator>
       </NavigationContainer>
     );
   }
