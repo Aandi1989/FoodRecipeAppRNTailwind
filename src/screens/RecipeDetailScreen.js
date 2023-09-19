@@ -26,7 +26,7 @@ export default function RecipeDetailScreen(props) {
     const getMealData = async (id) => {
         try{
           const response = await axios.get(`https://themealdb.com/api/json/v1/1/lookup.php?i=${id}`);
-          console.log('got mealData: ', response.data);
+        //   console.log('got mealData: ', response.data);
           if(response && response.data){
             setMeal(response.data.meals[0]);
             setLoading(false);
@@ -65,7 +65,8 @@ export default function RecipeDetailScreen(props) {
       <StatusBar style={"light"} />
       {/* recipe image */}
       <View className="flex-row justify-center">
-      <Animated.Image 
+      <Image 
+            key={item.strMeal}
             source={{uri: item.strMealThumb}}
             sharedTransitionTag={item.strMeal}
             style={{width: wp(98), height: hp(50), borderRadius: 20, 
